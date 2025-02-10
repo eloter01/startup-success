@@ -43,10 +43,10 @@ def validate_dates(df, date_columns):
         valid_mask &= valid_dates
     
     # Return filtered dataframe and number of dropped rows
-    filtered_df = df[valid_mask]
+    df = df[valid_mask]
     #dropped_count = len(df) - len(filtered_df)
     
-    return filtered_df #, dropped_count
+    return df #, dropped_count
 
 def remove_outliers(df, column_names):
     for col in column_names:
