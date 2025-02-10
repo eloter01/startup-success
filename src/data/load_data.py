@@ -1,4 +1,5 @@
 # src/data/load_data.py
+import os
 import kagglehub
 import pandas as pd
 

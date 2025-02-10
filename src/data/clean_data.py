@@ -7,10 +7,14 @@ def type_conversion_datetime(df, date_columns):
         # change data type of founded_at, first_funding_at, last_funding_at to datetime
         df[col] = pd.to_datetime(df[col])
         
+    return df
+        
 def type_conversion_float(df, float_columns):
     for col in float_columns:
         df[col] = df[col].replace('-', float('nan'))
         df[col] = df[col].astype(float)
+        
+    return df
 
 def validate_dates(df, date_columns):
     """
@@ -45,14 +49,14 @@ def validate_dates(df, date_columns):
     return filtered_df #, dropped_count
 
 def remove_outliers(df, column_names):
-    for col in column_names
+    for col in column_names:
         Q1 = df[col].quantile(0.25)
         Q3 = df[col].quantile(0.75)
         IQR = Q3 - Q1
         lower_bound = Q1 - 1.5 * IQR
         upper_bound = Q3 + 1.5 * IQR
     
-        df[(df[col] >= lower_bound) & (df[col] <= upper_bound)]
+        df.loc[(df[col] >= lower_bound) & (df[col] <= upper_bound)]
     
     return df
 
