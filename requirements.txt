@@ -1,0 +1,22 @@
+# Core data science
+numpy
+pandas
+scikit-learn
+xgboost
+
+# Data visualization
+matplotlib
+seaborn
+
+# Jupyter notebooks
+jupyter
+ipykernel
+
+# Data handling
+kagglehub
+
+# ML utilities
+imbalanced-learn
+
+# For your Streamlit deployment
+streamlit
