@@ -4,9 +4,9 @@ from preprocessing import prepare_data
 from models import get_all_models
 from evaluation import evaluate_models
 
-def save_artifacts(models_dict, best_model, label_encoder, scaler):
+def save_artifacts(models_dict, best_model, label_encoder, scaler, X_test, y_test):
     """
-    Save all models and preprocessing objects.
+    Save all models, preprocessing objects, and test data.
     """
     # Save all models
     for name, result in models_dict.items():
@@ -18,6 +18,10 @@ def save_artifacts(models_dict, best_model, label_encoder, scaler):
     # Save preprocessors
     joblib.dump(label_encoder, 'models/label_encoder.pkl')
     joblib.dump(scaler, 'models/scaler.pkl')
+    
+    # Save test data
+    joblib.dump(X_test, 'models/X_test.pkl')
+    joblib.dump(y_test, 'models/y_test.pkl')
 
 def main():
     # Read data
@@ -37,9 +41,8 @@ def main():
         models, X_train, X_test, y_train, y_test, label_encoder
     )
     
-    # Save all models and preprocessors
-    save_artifacts(results, best_model, label_encoder, scaler)
+    # Save all models, preprocessors, and test data
+    save_artifacts(results, best_model, label_encoder, scaler, X_test, y_test)
 
 if __name__ == "__main__":
     main()
-    
