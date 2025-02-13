@@ -3,15 +3,24 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder
 from imblearn.over_sampling import SMOTE
 import pandas as pd
 
-# Define constants
+# # Define constants
+# NUMERICAL_COLS = [
+#     'funding_total_usd', 'funding_rounds', 'days_to_first_funding',
+#     'funding_duration', 'company_age_at_last_funding', 'founded_year',
+#     'founded_quarter', 'first_funding_year', 'last_funding_year',
+#     'category_count'
+# ]
+
+# CATEGORICAL_COLS = ['country_code', 'region', 'primary_sector']
+
 NUMERICAL_COLS = [
     'funding_total_usd', 'funding_rounds', 'days_to_first_funding',
-    'funding_duration', 'company_age_at_last_funding', 'founded_year',
-    'founded_quarter', 'first_funding_year', 'last_funding_year',
+    'funding_duration', 
+    'founded_quarter', 'last_funding_year',
     'category_count'
 ]
 
-CATEGORICAL_COLS = ['country_code', 'region', 'primary_sector']
+CATEGORICAL_COLS = ['country_code', 'primary_sector']
 
 def prepare_features(df, target_col='status'):
     """

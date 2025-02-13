@@ -25,7 +25,7 @@ def save_artifacts(models_dict, best_model, label_encoder, scaler, X_test, y_tes
 
 def main():
     # Read data
-    df = pd.read_csv('data/processed/featured_startups.csv')
+    df = pd.read_csv('data/processed/startups_reduced_multicollinearity.csv')
     
     # Optional: Filter for specific countries
     # df = df[df['country_code'].isin(['USA', 'GBR', 'CAN'])]
